@@ -1,7 +1,7 @@
 FARM WEATHER
 ============
 
-Provides a weather log category.
+Provides a weather observation quick form and log category.
 
 This module is an add-on for the [farmOS](http://drupal.org/project/farm)
 distribution.
@@ -9,7 +9,10 @@ distribution.
 DEPENDENCIES
 ------------
 
-(none)
+This module depends on the following modules:
+
+ * Farm Quantity (included in farmOS)
+ * Farm Quantity Log (included in farmOS)
 
 INSTALLATION
 ------------

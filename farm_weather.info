@@ -1,4 +1,6 @@
 name = Farm Weather
-description = Provides a weather log category.
+description = Provides a weather observation quick form and log category.
 core = 7.x
 package = farmOS Contrib
+dependencies = farm_quantity
+dependencies = farm_quantity_log
