@@ -1,0 +1,4 @@
+name = Farm Weather
+description = Provides a weather log category.
+core = 7.x
+package = farmOS Contrib

@@ -1,0 +1,14 @@
+<?php
+/**
+ * @file
+ * Farm weather module.
+ */
+
+/**
+ * Implements hook_farm_log_categories().
+ */
+function farm_weather_farm_log_categories() {
+
+  // Provide an "Weather" log category.
+  return array('Weather');
+}
