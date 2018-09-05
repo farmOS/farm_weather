@@ -2,5 +2,7 @@ name = Farm Weather
 description = Provides a weather observation quick form and log category.
 core = 7.x
 package = farmOS Contrib
-dependencies = farm_quantity
-dependencies = farm_quantity_log
+dependencies[] = farm_quantity
+dependencies[] = farm_quantity_log
+dependencies[] = farm_quick
+

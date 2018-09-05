@@ -132,5 +132,8 @@ function farm_weather_form_submit($form, &$form_state) {
   );
 
   // Create a new farm quantity log.
-  farm_quantity_log_create($log_type, $log_name, $timestamp, TRUE, array(), $measurements, $notes, $categories);
+  $log = farm_quantity_log_create($log_type, $log_name, $timestamp, TRUE, array(), $measurements, $notes, $categories);
+
+  // Link the log to the quick form.
+  farm_quick_entity_link('farm_weather_form', 'log', $log);
 }
