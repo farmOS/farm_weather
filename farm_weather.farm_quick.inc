@@ -27,7 +27,6 @@ function farm_weather_form($form, &$form_state) {
   $form['weather'] = array(
     '#type' => 'fieldset',
     '#title' => t('Record a weather event'),
-    '#description' => t('Use this form to record an observed weather event. An observation log will be created with standard details filled in.'),
     '#tree' => TRUE,
   );
 
