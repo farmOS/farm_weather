@@ -1,32 +1,13 @@
-FARM WEATHER
-============
+# farmOS Weather
 
-Provides a weather observation quick form and log category.
+Provides a quick form for tracking precipitation observations in
+[farmOS](https://farmOS.org).
 
-This module is an add-on for the [farmOS](http://drupal.org/project/farm)
-distribution.
-
-DEPENDENCIES
-------------
-
-This module depends on the following modules:
-
- * Farm Quantity (included in farmOS)
- * Farm Quantity Log (included in farmOS)
-
-INSTALLATION
-------------
-
-Install as you would normally install a contributed drupal module. See:
-http://drupal.org/documentation/install/modules-themes/modules-7 for further
-information.
-
-MAINTAINERS
------------
+## Maintainers
 
 Current maintainers:
- * Michael Stenta (m.stenta) - https://drupal.org/user/581414
+- [Michael Stenta](https://github.com/mstenta)
 
 This project has been sponsored by:
- * [Globetrotter Foundation](http://globetrotterfoundation.org)
- * [Farmier](http://farmier.com)
+- [Farmier](http://farmier.com)
+- [Globetrotter Foundation](http://globetrotterfoundation.org)
