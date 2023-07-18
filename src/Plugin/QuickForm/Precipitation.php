@@ -100,6 +100,7 @@ class Precipitation extends QuickFormBase {
       '#type' => 'number',
       '#title' => $this->t('Precipitation amount (in @units)', ['@units' => $this->precipitationUnits()]),
       '#min' => 0,
+      '#step' => 0.01,
     ];
 
     // Notes.
