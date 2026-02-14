@@ -4,81 +4,41 @@ namespace Drupal\farm_weather\Plugin\QuickForm;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\farm_quick\Attribute\QuickForm;
 use Drupal\farm_quick\Plugin\QuickForm\QuickFormBase;
 use Drupal\farm_quick\Traits\QuickLogTrait;
 use Drupal\farm_quick\Traits\QuickStringTrait;
-use Psr\Container\ContainerInterface;
 
 /**
  * Precipitation observation quick form.
- *
- * @QuickForm(
- *   id = "precipitation",
- *   label = @Translation("Precipitation"),
- *   description = @Translation("Record a precipitation weather event."),
- *   helpText = @Translation("This form will create an observation log to represent a precipitation weather event."),
- *   permissions = {
- *     "create observation log",
- *   }
- * )
  */
+#[QuickForm(
+  id: 'precipitation',
+  label: new TranslatableMarkup('Precipitation'),
+  description: new TranslatableMarkup('Record a precipitation weather event.'),
+  helpText: new TranslatableMarkup('This form will create an observation log to represent a precipitation weather event.'),
+  permissions: [
+    'create observation log',
+  ],
+)]
 class Precipitation extends QuickFormBase {
 
   use QuickLogTrait;
   use QuickStringTrait;
 
-  /**
-   * The config factory service.
-   *
-   * @var \Drupal\Core\Config\ConfigFactoryInterface
-   */
-  protected $configFactory;
-
-  /**
-   * Current user object.
-   *
-   * @var \Drupal\Core\Session\AccountInterface
-   */
-  protected $currentUser;
-
-  /**
-   * Constructs a QuickFormBase object.
-   *
-   * @param array $configuration
-   *   A configuration array containing information about the plugin instance.
-   * @param string $plugin_id
-   *   The plugin_id for the plugin instance.
-   * @param mixed $plugin_definition
-   *   The plugin implementation definition.
-   * @param \Drupal\Core\Messenger\MessengerInterface $messenger
-   *   The messenger service.
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-   *   The config factory.
-   * @param \Drupal\Core\Session\AccountInterface $current_user
-   *   Current user object.
-   */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, MessengerInterface $messenger, ConfigFactoryInterface $config_factory, AccountInterface $current_user) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $messenger);
-    $this->messenger = $messenger;
-    $this->configFactory = $config_factory;
-    $this->currentUser = $current_user;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $container->get('messenger'),
-      $container->get('config.factory'),
-      $container->get('current_user'),
-    );
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    EntityTypeManagerInterface $entity_type_manager,
+    AccountInterface $current_user,
+    protected ConfigFactoryInterface $configFactory,
+  ) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $entity_type_manager, $current_user);
   }
 
   /**
