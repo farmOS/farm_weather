@@ -107,7 +107,7 @@ class Precipitation extends QuickFormBase {
    * Helper function for determining the precipitation quantity units.
    *
    * @return string
-   *   Returns `us` or `metric`
+   *   Returns `cm` or `inches`
    */
   protected function precipitationUnits() {
     $system_of_measurement = $this->configFactory->get('quantity.settings')->get('system_of_measurement');
